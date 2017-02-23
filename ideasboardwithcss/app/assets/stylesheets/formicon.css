@@ -1,0 +1,37 @@
+/* Below line is used to import font-family: Raleway from Google Fonts (optional)*/
+@import "http://fonts.googleapis.com/css?family=Raleway";
+body{
+    font-family:'Raleway',sans-serif
+}
+img#logo{
+    margin-left:90px
+}
+div#first{
+    width:350px;
+    height:auto;
+    margin:50px auto 0;
+    padding:20px 25px;
+    background-color:#EEE;
+    color:#333;
+    border:2px solid #C2D6FF;
+    border-radius:5px;
+    border-radius:40px 0 40px 0
+}
+label{
+    font-size:15px;
+    font-weight:700
+}
+textarea#comment_comment{
+
+    background-repeat:no-repeat;
+    background-position:6px;
+    border:1px solid #DADADA;
+    margin-top:10px;
+    padding-left:35px;
+    width:100%;
+    height:30px;
+    font-size:14px;
+
+}
+
+

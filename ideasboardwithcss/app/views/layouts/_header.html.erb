@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+  <%= link_to "SU Kickstarter", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if current_user %>
+        <li><a><%= current_user.name %></a></li>
+        <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+
+        <% end %>
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+

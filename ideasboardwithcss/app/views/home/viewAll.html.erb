@@ -1,0 +1,77 @@
+
+
+
+
+
+<!-- Top Banner -->
+<section class="headerofbody card-holder">
+<!-- br tags for placements of the first card with respect to top banner -->
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!-- Cards start here , First card is Share your thoughts card --->
+<section class="card beauty">
+<h1 style="color: black">Share your thoughts</h1>
+
+<form class="new_post" id="new_post" action="/users/<%=current_user.id%>/posts" accept-charset="UTF-8" method="post" data-remote="true">
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input type="hidden" name="authenticity_token" value="NASbMiQlGr8iSFj2oGQZQLhRyiOx2A6JZsdZKbc/y22UJgW9ZZZIogfzwpF/se/cRuFz0pW/R9DNUdihLbw1tQ==" />
+  <div class="field">
+    <label for="post_title" style="color: black" >Title</label><br />
+    <input type="text" name="post[title]" id="post_title" placeholder="Give a title to your idea..."/>
+  </div>
+  <div class="field">
+    <label for="post_content" style="color: black">Content</label><br />
+    <textarea name="post[content]" id="post_content" style="height: 120px;" placeholder="Express yourself...">
+</textarea>
+  </div>
+  <div class="btn btn-lg ">
+    <input type="submit" name="commit" value="Create Post" data-disable-with="Create Post" />
+  </div>
+</form>
+</section>
+<!-- horizontal ruler after share your thoughts card -->
+<hr>
+<!-- posts cards start here -->
+
+<% @posts.each do |post| %>
+<section class="card">
+  <tr>
+    <td><h3><u><%= post.title %> - <%= post.user.name%></u></h3></td>
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(post.created_at) %> ago.
+    </span>
+      <td><h4><%= post.content %></h4></td>
+
+
+    <div class="comment-holder" style="background-color: #eaeaea">
+      <br><% post.comments.each do |comment| %>
+
+          <img src = '<%=comment.user.image%>' height="30px" weight="30px" alt="no image"><font color="blue"><%=comment.user.name%></font>   <%=comment.comment%> <br>
+      <%end%>
+      </div>
+
+      <form class="new_comment" data-remote="true" id="new_comment" action="/posts/<%=post.id %>/comments" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="nnicj7NUV/IlcShnylKnhisyLCDqiggvYSK8FeW+amZGHnG9WRQBHPNNZxPzCTxRISpK0GPqsBFxFUuVneci5w==" />
+        <input type="hidden" name="comment[user_id]" value="<%=current_user.id%>">
+
+
+        <div id="field" >
+          <textarea name="comment[comment]" style="background-image:url(<%=current_user.image%>); background-size: 3% 100%" id="comment_comment" placeholder=" Write a comment..." >
+</textarea>
+        </div>
+
+        <div class="btn">
+          <input type="submit" name="commit" value="Create Comment" data-disable-with="Create Comment" />
+        </div>
+      </form>
+      <hr>
+
+    </tr>
+      </section>
+<% end %>
+</section>
+
+<!-- end of posts cards -->

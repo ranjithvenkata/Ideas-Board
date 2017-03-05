@@ -9,7 +9,7 @@
             console.log(data);
             var $self = $(this);
             var commentHolder = $self.siblings('.comment-holder');
-            commentHolder.append(  '<br><img src="'+data[1]+'" height="30px" weight="30px" alt="no image">'+ '<font color="blue">'+ data[2]+'</font> ' + data[0].comment  );
+            commentHolder.append(  '<img src="'+data[1]+'" height="30px" weight="30px" alt="no image">'+ '<font color="blue">'+ data[2]+'</font> ' + data[0].comment+'<br>' );
             $('textarea#comment_comment').val('');
         });
         $('.card-holder').on('ajax:error', '.new_comment', function(e, data, status, xhr){

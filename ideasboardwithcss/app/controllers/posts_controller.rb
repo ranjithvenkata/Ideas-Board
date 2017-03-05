@@ -1,14 +1,30 @@
 class PostsController < ApplicationController
-  before_action :set_posts
+  before_action :set_posts, only: [:create]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET users/1/posts
   def index
     @posts = @user.posts
+
   end
 
   # GET users/1/posts/1
   def show
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.upvote_by current_user
+    render :json => [@post.get_upvotes.size,@post.get_downvotes.size]
+
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.downvote_by current_user
+    render :json => [@post.get_upvotes.size,@post.get_downvotes.size]
+
+
   end
 
   # GET users/1/posts/new

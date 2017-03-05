@@ -9,7 +9,7 @@
             console.log(data);
             var $self = $(this);
             var commentHolder = $self.siblings('.comment-holder');
-            commentHolder.append(  '<img src="'+data[1]+'" height="30px" weight="30px" alt="no image">'+ '<font color="blue">'+ data[2]+'</font> ' + data[0].comment+'<br>' );
+            commentHolder.append(  '<img src="'+data[1]+'" height="30px" weight="30px" alt="no image">'+ '<font color="blue">'+ data[2]+'</font> ' + data[0].comment + '<br>'  );
             $('textarea#comment_comment').val('');
         });
         $('.card-holder').on('ajax:error', '.new_comment', function(e, data, status, xhr){
@@ -40,6 +40,20 @@
         })
 
 
+
+        $('.thumb').on('ajax:success', function(e, data, status, xhr){
+
+            console.log("the upvote is " +  data[0]);
+            console.log("the downvote is " +  data[1]);
+            $('.voteup').html(data[0]);
+            $('.votedown').html(data[1]);
+
+
+        });
+        $('.thumb').on('ajax:error', function(e, data, status, xhr){
+
+            alert('failure');
+        })
 
 
 

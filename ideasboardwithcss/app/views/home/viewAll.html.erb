@@ -12,6 +12,8 @@
   <br>
   <br>
 
+
+
 <!-- Cards start here , First card is Share your thoughts card --->
 <section class="card beauty">
 <h1 style="color: black">Share your thoughts</h1>
@@ -45,7 +47,16 @@
       Posted <%= time_ago_in_words(post.created_at) %> ago.
     </span>
       <td><h4><%= post.content %></h4></td>
-
+    <span class="thumb">
+    <%= link_to like_post_path(post), method: :put,remote: true do %>
+        <font size="20" >&#x1F44D;</font>
+        <span class="voteup"><%= post.get_upvotes.size %></span>
+    <% end %>
+    <%= link_to dislike_post_path(post), method: :put ,remote: true do %>
+        <font size="20">&#x1F44E;</font>
+          <span class="votedown"><%= post.get_downvotes.size %></span>
+    <% end %>
+    </span>
 
     <div class="comment-holder" style="background-color: #eaeaea">
       <br><% post.comments.each do |comment| %>
@@ -72,6 +83,8 @@
     </tr>
       </section>
 <% end %>
+
+
 </section>
 
 <!-- end of posts cards -->

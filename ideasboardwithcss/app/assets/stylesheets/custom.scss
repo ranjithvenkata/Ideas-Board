@@ -59,7 +59,12 @@ textarea {
   resize: vertical;
 
 }
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
 
+.pagination a:hover:not(.active) {background-color: #ddd;}
 .center {
   text-align: center;
   h1 {

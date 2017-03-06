@@ -63,7 +63,9 @@ textarea {
   background-color: #4CAF50;
   color: white;
 }
-
+.image-block {
+  display: inline-block;
+}
 .pagination a:hover:not(.active) {background-color: #ddd;}
 .center {
   text-align: center;

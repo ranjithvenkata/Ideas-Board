@@ -14,9 +14,9 @@
 <hr>
 <br>
 <div class="w3-content w3-display-container" style="max-width:800px ; max-height:1000px">
-  <img class="mySlides " src="Elon-Musk.jpg" style="width:100%">
-  <img class="mySlides " src="Bill-Gates.jpg" style="width:100%">
-  <img class="mySlides " src="Mark.jpg" style="width:100%">
+  <img class="mySlides " src="Elon-Musk.jpg" style="height:550px;width:800px">
+  <img class="mySlides " src="Bill-Gates.jpg" style="height:550px;width:800px">
+  <img class="mySlides " src="Mark.jpg" style="height:550px;width:800px">
   <div class="w3-center w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
     <div class="w3-left w3-padding-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
     <div class="w3-right w3-padding-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
@@ -82,10 +82,14 @@
 
 
 <div class="center jumbotron" >
-  <h1>Kick Start your Ideas! </h1>
-
+  <span class="image-block"><h1>Kick Start your Ideas!
+</h1>
+    <br>
 
    <h4> An exclusive discussion board to share ideas.</h4>
+
+
+
 
   <% if !current_user %>
   <%= link_to "Sign in now!", "/auth/google_oauth2", class: "btn btn-lg btn-primary" %>
@@ -93,4 +97,5 @@
   <%= link_to "Share your ideas!", "/home/viewAll", class: "btn btn-lg btn-primary" %>
   <%end%>
 
+</span>
 </div>

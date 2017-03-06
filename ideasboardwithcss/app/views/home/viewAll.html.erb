@@ -47,14 +47,14 @@
       Posted <%= time_ago_in_words(post.created_at) %> ago.
     </span>
       <td><h4><%= post.content %></h4></td>
-    <span class="thumb">
+    <span class="thumb" >
     <%= link_to like_post_path(post), method: :put,remote: true do %>
         <font size="20" >&#x1F44D;</font>
-        <span class="voteup"><%= post.get_upvotes.size %></span>
+        <span class="voteup" id ="<%=post.id%>"><%= post.get_upvotes.size %></span>
     <% end %>
     <%= link_to dislike_post_path(post), method: :put ,remote: true do %>
         <font size="20">&#x1F44E;</font>
-          <span class="votedown"><%= post.get_downvotes.size %></span>
+          <span class="votedown" id="<%=post.id%>"><%= post.get_downvotes.size %></span>
     <% end %>
     </span>
 

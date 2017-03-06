@@ -45,8 +45,11 @@
 
             console.log("the upvote is " +  data[0]);
             console.log("the downvote is " +  data[1]);
-            $('.voteup').html(data[0]);
-            $('.votedown').html(data[1]);
+            console.log("the id is " +  data[2]);
+
+
+            $('#'+data[2]+'.voteup').html(data[0]);
+            $('#'+data[2]+'.votedown').html(data[1]);
 
 
         });

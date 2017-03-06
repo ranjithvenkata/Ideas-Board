@@ -15,14 +15,14 @@ class PostsController < ApplicationController
   def upvote
     @post = Post.find(params[:id])
     @post.upvote_by current_user
-    render :json => [@post.get_upvotes.size,@post.get_downvotes.size]
+    render :json => [@post.get_upvotes.size,@post.get_downvotes.size,@post.id]
 
   end
 
   def downvote
     @post = Post.find(params[:id])
     @post.downvote_by current_user
-    render :json => [@post.get_upvotes.size,@post.get_downvotes.size]
+    render :json => [@post.get_upvotes.size,@post.get_downvotes.size,@post.id]
 
 
   end
